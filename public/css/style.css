@@ -1,0 +1,356 @@
+/* ==========================================================================
+   CodeAlpha Premium E-Commerce Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Color Palette */
+    --primary-indigo: #4f46e5;
+    --primary-indigo-hover: #4338ca;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    --dark-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    
+    /* Backgrounds & Text */
+    --body-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-light: #e2e8f0;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Transitions & Borders */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius-standard: 12px;
+    --radius-pill: 50px;
+}
+
+/* --- Scrollbar Customization --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* --- Global Elements --- */
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-main);
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+/* --- Navbar Redesign (Glassmorphism & Gradients) --- */
+.navbar {
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.03em;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75) !important;
+    padding: 0.5rem 1rem !important;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #818cf8;
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 60%;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+}
+
+/* --- Premium Buttons Redesign --- */
+.btn {
+    border-radius: var(--radius-standard);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.65rem 1.4rem;
+    transition: var(--transition-smooth);
+    border: none;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.3);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-indigo-hover);
+    box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: var(--success-gradient);
+    box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+    color: #ffffff;
+}
+
+.btn-success:hover {
+    box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+    border: 1.5px solid var(--primary-indigo);
+    color: var(--primary-indigo);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-indigo);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.btn-outline-light {
+    border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    transition: var(--transition-smooth);
+}
+
+.btn-outline-light:hover {
+    background: #ffffff !important;
+    color: var(--text-main) !important;
+    border-color: #ffffff !important;
+}
+
+/* --- Cards Customization & Hover Zoom --- */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius-standard);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.product-card {
+    transition: var(--transition-smooth);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-card img {
+    transition: var(--transition-smooth);
+}
+
+.product-card:hover img {
+    transform: scale(1.04);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.card-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- Badges and Indicators --- */
+.badge {
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 0.4em 0.7em;
+}
+
+.badge.bg-danger {
+    background: var(--danger-gradient) !important;
+}
+
+.badge.bg-success {
+    background: var(--success-gradient) !important;
+}
+
+.badge.bg-warning {
+    background: var(--warning-gradient) !important;
+}
+
+.badge.bg-info {
+    background: var(--secondary-gradient) !important;
+}
+
+/* Navbar Custom Cart Count Pill */
+.navbar-nav .position-absolute.badge {
+    font-size: 0.7rem;
+    padding: 0.35em 0.55em;
+    border: 2px solid rgba(15, 23, 42, 1);
+}
+
+/* --- Hero Banner Landing Page --- */
+.hero-banner {
+    background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0.1%, rgba(233, 226, 226, 0.28) 90.1%);
+    border-radius: 24px;
+    padding: 5rem 2rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Interactive Cart UI Table --- */
+.table {
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+
+.table tbody tr {
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-standard);
+    transition: var(--transition-smooth);
+}
+
+.table tbody tr:hover {
+    box-shadow: var(--shadow-md);
+    transform: scale(1.002);
+}
+
+.table td, .table th {
+    border: none !important;
+    padding: 1.2rem 1rem !important;
+}
+
+.table tbody tr td:first-child {
+    border-top-left-radius: var(--radius-standard);
+    border-bottom-left-radius: var(--radius-standard);
+}
+
+.table tbody tr td:last-child {
+    border-top-right-radius: var(--radius-standard);
+    border-bottom-right-radius: var(--radius-standard);
+}
+
+.table thead tr th {
+    background: transparent !important;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    padding-bottom: 0px !important;
+}
+
+.cart-img {
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+}
+
+/* --- Modern Form Inputs Styling --- */
+.form-control, .form-select {
+    border: 1.5px solid var(--border-light);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+    background-color: #ffffff;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-indigo);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    color: var(--text-main);
+}
+
+/* --- Rating Stars --- */
+.text-warning {
+    color: #f59e0b !important;
+}
+
+/* --- Mobile Responsiveness Details --- */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(15, 23, 42, 0.98);
+        border-radius: var(--radius-standard);
+        padding: 1rem;
+        margin-top: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .table-responsive {
+        border: none !important;
+    }
+}
